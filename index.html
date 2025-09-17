@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#e9a7ff">
+  <meta name="description" content="xorman ~ frontend developer, junior python developer, automative interface owner & user">
+  <meta name="keywords" content="xorman, xorman_off, george salt, george, george20097">
+  <meta name="author" content="xorman">
+
+  <title>xorman | official page</title>
+
+  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css">
+
+  <link rel="icon" href="static/img/icon.png">
+</head>
+
+<body>
+  <main>
+    <div class="time">~~:~~:~~</div>
+
+    <div class="person">
+      <img class="avatar" src="static/img/avatar.png">
+      <h1 class="name">~ xorman ~</h1>
+      <div class="badges">
+        <a class="badge telegram" href="https://t.me/xorman_off" target="_blank"><i class="fi fi-brands-telegram"></i></a>
+        <a class="badge github" href="https://github.com/George-Salt/" target="_blank"><i class="fi fi-brands-github"></i></a>
+        <a class="badge discord" href="https://discord.com/invite/ryHmgEGc5d" target="_blank"><i class="fi fi-brands-discord"></i></a>
+      </div>
+    </div>
+
+    <div class="action">
+      <div class="navigation">
+        <div class="category about active" onclick="openCategory('about')">about</div>
+        <div class="category bots" onclick="openCategory('bots')">bots</div>
+        <div class="category web" onclick="openCategory('web')">web</div>
+        <div class="category tmp" onclick="openCategory('tmp')">tmp</div>
+      </div>
+
+      <div class="content">
+        <div class="about">
+          <video src="static/video/about.mp4" autoplay muted loop></video>
+
+          <div class="card">
+            <h2>#chillin'</h2>
+            <p>~ 16 y.o. ~</p>
+            <p>UTC+3:00</p>
+          </div>
+        </div>
+
+        <div class="bots">
+          <video src="static/video/bots.mp4" autoplay muted loop></video>
+
+          <div class="card">
+            <h2>#automate</h2>
+            <p>~ socials & games ~</p>
+            <a href="">more</a>
+          </div>
+        </div>
+
+        <div class="web">
+          <img src="static/img/web.png">
+
+          <div class="card">
+            <h2>#imagine</h2>
+            <p>~ frontend dev ~</p>
+            <a href="">more</a>
+          </div>
+        </div>
+
+        <div class="tmp">
+          <video src="static/video/tmp.mp4" autoplay muted loop></video>
+
+          <div class="card">
+            <h2>#drivin'</h2>
+            <p>~ vip escort ~</p>
+            <a href="">more</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="comment">
+        <input type="text" placeholder="Write me something...">
+        <div class="button" onclick="clearField()">🡥</div>
+      </div>
+    </div>
+
+    <a class="secret" href="">🡥</a>
+  </main>
+
+  <script>
+    function updateTime() {
+      const localTime = new Date().toLocaleTimeString("ru-RU", {
+        timeZone: "Etc/GMT-3",
+        hour12: false,
+      });
+      document.querySelector(".time").textContent = localTime;
+    };
+
+    setInterval(updateTime, 1000);
+  </script>
+
+  <script>
+    function openCategory(category) {
+      document.querySelectorAll(".navigation .category").forEach(element => {
+        element.classList.remove("active");
+      });
+      document.querySelector(`.${category}`).classList.add("active");
+
+      document.querySelectorAll(".content > *").forEach(element => {
+        element.style.display = "none";
+      });
+      document.querySelector(`.content .${category}`).style.display = "flex";
+    };
+
+    openCategory("about");
+  </script>
+
+  <script>
+    function clearField() {
+      document.querySelector("main .comment input").value = "";
+    };
+  </script>
+</body>
+
+</html>

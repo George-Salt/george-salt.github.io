@@ -1,0 +1,220 @@
+
+@font-face {
+  font-family: "Loos Extended";
+  src: url("../font/loos/extended/regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Loos Extended";
+  src: url("../font/loos/extended/black.otf");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@keyframes backgroundParallaxLoop {
+  0% {
+    background-position: 0 center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+  
+  100% {
+    background-position: 0 center;
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: black;
+  background: url("../img/background.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(10px);
+  color: #cccccc;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Loos Extended", sans-serif;
+  animation: backgroundParallaxLoop 60s infinite;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+main .time {
+  position: absolute;
+  top: 15px;
+}
+
+
+main .person {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  /* background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  box-shadow: inset 0 0 15px #e9a7ff25; */
+}
+
+main .person .avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 25%;
+  opacity: 0.75;
+  border: 2px solid #cccccc;
+}
+
+main .person .name {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+main .person .badges {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+main .person .badges .badge {
+  font-size: 20px;
+  color: #cccccc;
+  text-decoration: none;
+}
+
+
+main .action {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+main .action .navigation {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  border-bottom: 2px solid;
+}
+
+main .action .navigation > * {
+  padding: 15px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+main .action .navigation > *::before {
+  content: "•";
+  margin-right: 5px;
+}
+
+main .action .navigation > *.active {
+  color: white;
+  cursor: default;
+}
+
+main .action .content > * {
+  display: flex;
+  gap: 15px;
+}
+
+main .action .content img,
+main .action .content video {
+  width: 75px;
+  height: 75px;
+  border-radius: 15px;
+}
+
+main .action .content .card {
+  display: flex;
+  flex-direction: column;
+}
+
+main .action .content .card a {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  text-decoration: none;
+  transition: gap 0.3s;
+}
+
+main .action .content .card a:hover {
+  gap: 10px;
+}
+
+main .action .content .card a::after {
+  content: "🡥";
+}
+
+
+main .action .comment {
+  display: flex;
+  align-items: center;
+  background: #101010;
+  border-radius: 15px;
+}
+
+main .action .comment input {
+  outline: none;
+  padding: 0 15px;
+  width: calc(100% - 50px);
+  border: none;
+  color: white;
+  background: transparent;
+  font-family: "Loos Extended", sans-serif;
+  font-size: 15px;
+}
+
+main .action .comment .button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: #1f1f1f;
+  border-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+main .action .comment .button:hover {
+  background: white;
+  color: black;
+}
+
+
+main .secret {
+  font-size: 20px;
+  text-decoration: none;
+  color: #2f2f2f;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
